@@ -1,1 +1,6 @@
 
+inicio de conexion;cliente1;2023-04-23;08:48:49
+inicio de conexion;cliente2;2023-04-23;08:49:40
+inicio de conexion;cliente3;2023-04-23;08:51:49
+inicio de conexion;cliente4;2023-04-23;08:53:52
+inicio de conexion;cliente5;2023-04-23;08:54:12
