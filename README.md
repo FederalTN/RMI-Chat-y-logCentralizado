@@ -1,3 +1,7 @@
+-----RMI SERVICIO DE CHAT CON LOG CENTRALIZADO-----
+log guardado en -> cd appServer
+                   log.txt
+
 ---PRE-REQUISITO, INSTALAR DEPENDENCIAS ( Linux-Ubuntu )---
 
 Java development kit -> sudo apt-get install default-jdk

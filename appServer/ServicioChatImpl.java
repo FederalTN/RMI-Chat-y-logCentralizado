@@ -18,6 +18,7 @@ class ServicioChatImpl implements ServicioChat {
     public void alta(Cliente c) throws RemoteException {
         l.add(c);
         int id = l.indexOf(c) + 1;
+        // Fecha y hora de conexion
         Date fecha = new Date();
         SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd;HH:mm:ss");
         String fechaFormateada = formatoFecha.format(fecha);
@@ -38,6 +39,7 @@ class ServicioChatImpl implements ServicioChat {
     public void baja(Cliente c) throws RemoteException {
         int id = l.indexOf(c) + 1;
         l.remove(c);
+        // fecha y hora de desconexion
         Date fecha = new Date();
         SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd;HH:mm:ss");
         String fechaFormateada = formatoFecha.format(fecha);
@@ -81,7 +83,7 @@ class ServicioChatImpl implements ServicioChat {
             }
         }
     }
-
+    // N* de chat actual (numero correlativo)
     public int numeroCorrelativoActual() throws RemoteException {
         return numeroCorrelativo;
     }

@@ -15,14 +15,13 @@ class ClienteChat {
         }
 
         try {
-
+            // Conexion con el servidor
             Registry registry = LocateRegistry.getRegistry("127.0.0.1", PORT);
             ServicioChat srv = (ServicioChat) registry.lookup("Chat");
 
             ClienteImpl c = new ClienteImpl();
 
             srv.alta(c);
-            
 
             Scanner ent = new Scanner(System.in);
 
@@ -30,10 +29,11 @@ class ClienteChat {
             System.out.print(apodo + "! te doy la bienvenida al chat!" + "\n" + "Escriba algo -> ");
             String msg;
             String msgExit = "EXIT";
+            // Input del chat
             while (ent.hasNextLine()) {
                 msg = ent.nextLine();
+                // Desconexión del cliente
                 if (msg.equals(msgExit)) {
-                    // srv.envio(c, apodo, " deja la sala de chat !!!!! ");
                     break;
                 } else {
                     // Registro correlativo
@@ -48,6 +48,7 @@ class ClienteChat {
                     System.out.println(MensajeRegistro);
                 }
             }
+            // Avisa desconexión del cliente al servidor
             srv.baja(c);
             System.exit(0);
         } catch (RemoteException e) {
