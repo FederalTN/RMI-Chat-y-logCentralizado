@@ -1,5 +1,8 @@
+---PRE-REQUISITO, INSTALAR DEPENDENCIAS ( Linux-Ubuntu )---
 
-Para ejecutar este sistema debe
+Java development kit -> sudo apt-get install default-jdk
+
+--- EJECUCION EN EL SISTEMA (Linux-Ubuntu ) ---
 
 1) crear los .class de caha ejemplo creado en java, puede hacerlo ejecutando.
 
@@ -27,12 +30,6 @@ linux
 ```
  cd appServer
 rmiregistry 4002
-```
-
-Windows
-```
- cd appServer
-rmiregistry.exe 4002
 ```
 5) en consola(2) ejecutar
 
