@@ -7,9 +7,11 @@ import java.util.*;
 
 class ServicioChatImpl implements ServicioChat {
     private List<Cliente> l;
+    private int numeroCorrelativo;
 
     ServicioChatImpl() throws RemoteException {
         l = new LinkedList<Cliente>();
+        numeroCorrelativo = 0;
     }
 
     // Conexion con el cliente
@@ -71,11 +73,16 @@ class ServicioChatImpl implements ServicioChat {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        numeroCorrelativo++;
         // Enviar mensaje a los demás clientes
         for (Cliente c: l) {
             if (!c.equals(esc)) {
                 c.notificacion(apodo, m);
             }
         }
+    }
+
+    public int numeroCorrelativoActual() throws RemoteException {
+        return numeroCorrelativo;
     }
 }

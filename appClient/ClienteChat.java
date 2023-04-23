@@ -22,31 +22,31 @@ class ClienteChat {
             ClienteImpl c = new ClienteImpl();
 
             srv.alta(c);
+            
 
             Scanner ent = new Scanner(System.in);
 
             String apodo = args[0];
-            System.out.println(apodo + " bienvenido seas al chat! ");
+            System.out.print(apodo + "! te doy la bienvenida al chat!" + "\n" + "Escriba algo -> ");
             String msg;
             String msgExit = "EXIT";
             while (ent.hasNextLine()) {
-
                 msg = ent.nextLine();
                 if (msg.equals(msgExit)) {
-                    srv.envio(c, apodo, " deja la sala de chat !!!!! ");
+                    // srv.envio(c, apodo, " deja la sala de chat !!!!! ");
                     break;
                 } else {
+                    // Registro correlativo
+                    int numeroCorrelativo = srv.numeroCorrelativoActual();
                     // Registro fecha acciòn
                     Date fecha = new Date();
                     SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd;HH:mm:ss");
                     String fechaFormateada = formatoFecha.format(fecha);
-                    String MensajeRegistro = fechaFormateada + ";" + apodo + ": " + msg;
+                    String MensajeRegistro = numeroCorrelativo + ";" + fechaFormateada + ";" + apodo + ": " + msg;
+                    // Envio de mensaje
                     srv.envio(c, apodo, MensajeRegistro);
                     System.out.println(MensajeRegistro);
                 }
-
-                System.out.println(apodo + " escribe algo -> ");
-
             }
             srv.baja(c);
             System.exit(0);
