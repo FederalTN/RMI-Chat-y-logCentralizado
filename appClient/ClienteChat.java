@@ -2,6 +2,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.RemoteException;
 import java.util.*;
+import java.text.SimpleDateFormat;
 
 class ClienteChat {
 
@@ -25,7 +26,7 @@ class ClienteChat {
             Scanner ent = new Scanner(System.in);
 
             String apodo = args[0];
-            System.out.println(apodo + " dice > ");
+            System.out.println(apodo + " bienvenido seas al chat! ");
             String msg;
             String msgExit = "EXIT";
             while (ent.hasNextLine()) {
@@ -35,10 +36,16 @@ class ClienteChat {
                     srv.envio(c, apodo, " deja la sala de chat !!!!! ");
                     break;
                 } else {
-                    srv.envio(c, apodo, msg);
+                    // Registro fecha acciòn
+                    Date fecha = new Date();
+                    SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd;HH:mm:ss");
+                    String fechaFormateada = formatoFecha.format(fecha);
+                    String MensajeRegistro = fechaFormateada + ";" + apodo + ": " + msg;
+                    srv.envio(c, apodo, MensajeRegistro);
+                    System.out.println(MensajeRegistro);
                 }
 
-                System.out.println(apodo + " dice > ");
+                System.out.println(apodo + " escribe algo -> ");
 
             }
             srv.baja(c);
